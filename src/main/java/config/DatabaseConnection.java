@@ -1,0 +1,25 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package config;
+
+/**
+ *
+ * @author ADVAN
+ */
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class DatabaseConnection {
+
+    // URL koneksi ke database db_alexander di MySQL lokal
+    private static final String URL = "jdbc:mysql://localhost:3306/db_alexander";
+    private static final String USER = "root"; // Default username XAMPP/Laragon
+    private static final String PASSWORD = ""; // Default password XAMPP/Laragon (kosong)
+
+    public static Connection getConnection() throws SQLException {
+        return DriverManager.getConnection(URL, USER, PASSWORD);
+    }
+}
