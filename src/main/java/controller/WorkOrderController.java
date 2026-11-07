@@ -18,11 +18,11 @@ import javax.swing.table.DefaultTableModel;
 
 public class WorkOrderController {
 
-    // Penerapan DIP: Bergantung pada abstraksi (Interface), bukan kelas konkret
+    // Penerapan DIP: Bergantung pada abstraksi (Interface)
     private final WorkOrderRepository repository;
     private final WorkOrderView view;
 
-    // Dependency Injection melalui konstruktor
+    // Dependency Injection lewat konstruktor
     public WorkOrderController(WorkOrderRepository repository, WorkOrderView view) {
         this.repository = repository;
         this.view = view;
@@ -89,7 +89,7 @@ public class WorkOrderController {
 
         try {
             double biaya = Double.parseDouble(biayaStr);
-            // Generate kode QR otomatis sesuai FR-001
+            // Generate kode QR otomatis
             String kodeQr = "QR-ACK-" + id.toUpperCase();
 
             WorkOrder woBaru = new WorkOrder(id, pelanggan, barang, biaya, status, kodeQr);

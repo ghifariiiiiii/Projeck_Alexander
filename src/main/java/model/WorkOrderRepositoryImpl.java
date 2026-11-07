@@ -19,7 +19,7 @@ import java.util.List;
 
 public class WorkOrderRepositoryImpl implements WorkOrderRepository {
 
-    // buat wo
+    // buat/tambah wo
     @Override
     public void addWorkOrder(WorkOrder wo) {
         String sql = "INSERT INTO work_orders (id_wo, nama_pelanggan, nama_barang, biaya, status_progres, kode_qr) VALUES (?, ?, ?, ?, ?, ?)";
@@ -81,7 +81,7 @@ public class WorkOrderRepositoryImpl implements WorkOrderRepository {
         return listWo;
     }
 
-    // Implementasi FR-008: Mencari Work Order berdasarkan ID
+    //  Mencari Work Order berdasarkan ID
     @Override
     public WorkOrder searchWorkOrder(String idWo) {
         String sql = "SELECT * FROM work_orders WHERE id_wo = ?";
@@ -107,7 +107,7 @@ public class WorkOrderRepositoryImpl implements WorkOrderRepository {
         return null;
     }
 
-    // Implementasi FR-004 & FR-005: Memperbarui status progres pengerjaan (Update)
+    //  Memperbarui status progres pengerjaan (Update)
     @Override
     public void updateStatusProgress(String idWo, String statusBaru) {
         String sql = "UPDATE work_orders SET status_progres = ? WHERE id_wo = ?";

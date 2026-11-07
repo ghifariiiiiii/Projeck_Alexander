@@ -16,9 +16,9 @@ import javax.swing.SwingUtilities;
 public class Projeck_Alexander {
 
     public static void main(String[] args) {
-        // Menjalankan GUI di Event Dispatch Thread sesuai standar Java Swing (Modul 2)
+        // Menjalankan GUI sesuai standar Java Swing
         SwingUtilities.invokeLater(() -> {
-            // Instansiasi Model (melalui Interface), View, dan menyuntikkannya ke Controller (DIP)
+            // Instansiasi Model (melalui Interface), View, dan menyuntikkannya ke Controller 
             WorkOrderRepository repository = new WorkOrderRepositoryImpl();
             WorkOrderView view = new WorkOrderView();
             new WorkOrderController(repository, view);

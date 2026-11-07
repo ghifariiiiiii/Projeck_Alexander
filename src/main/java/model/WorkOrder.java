@@ -17,6 +17,7 @@ public class WorkOrder {
     private String statusProgres;
     private String kodeQr;
 
+    //deklarasi atribut' WO
     public WorkOrder(String idWo, String namaPelanggan, String namaBarang, double biaya,
             String statusProgres, String kodeQr) {
         this.idWo = idWo;
