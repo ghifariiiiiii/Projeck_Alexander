@@ -35,6 +35,7 @@ public class WorkOrderView extends JFrame {
     private final JButton btnCari;
     private final JButton btnRefresh;
     private final JButton btnClear;
+    private final JButton btnHapus;
 
     // Komponen Tabel
     private final JTable tableWo;
@@ -84,10 +85,12 @@ public class WorkOrderView extends JFrame {
         JPanel panelTombol = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 5));
         btnTambah = new JButton("Tambah WO Baru");
         btnUpdateStatus = new JButton("Update Status Progres");
+        btnHapus = new JButton("Hapus WO");
         btnClear = new JButton("Clear Form");
 
         panelTombol.add(btnTambah);
         panelTombol.add(btnUpdateStatus);
+        panelTombol.add(btnHapus);
         panelTombol.add(btnClear);
 
         panelUtamaAtas.add(panelForm, BorderLayout.CENTER);
@@ -181,6 +184,10 @@ public class WorkOrderView extends JFrame {
 
     public void addCariListener(ActionListener listener) {
         btnCari.addActionListener(listener);
+    }
+
+    public void addHapusListener(ActionListener listener) {
+        btnHapus.addActionListener(listener);
     }
 
     public void addRefreshListener(ActionListener listener) {

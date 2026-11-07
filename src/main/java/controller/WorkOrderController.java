@@ -36,6 +36,7 @@ public class WorkOrderController {
         this.view.addCariListener(e -> cariWorkOrder());
         this.view.addRefreshListener(e -> loadTableData());
         this.view.addClearListener(e -> this.view.clearForm());
+        this.view.addHapusListener(e -> hapusWorkOrder());
 
         // Event klik pada baris tabel agar datanya otomatis masuk ke form input
         this.view.getTableWo().addMouseListener(new MouseAdapter() {
@@ -139,6 +140,30 @@ public class WorkOrderController {
             });
         } else {
             view.showMessage("Data Work Order dengan ID '" + idCari + "' tidak ditemukan.");
+            loadTableData();
+        }
+    }
+
+    private void hapusWorkOrder() {
+        String id = view.getIdWoInput();
+
+        if (id.isEmpty()) {
+            view.showMessage("Pilih baris di tabel atau masukkan ID Work Order yang ingin dihapus!");
+            return;
+        }
+
+        // Konfirmasi sebelum menghapus agar lebih aman
+        int konfirmasi = javax.swing.JOptionPane.showConfirmDialog(
+                view,
+                "Apakah Anda yakin ingin menghapus Work Order ID " + id + "?",
+                "Konfirmasi Hapus",
+                javax.swing.JOptionPane.YES_NO_OPTION
+        );
+
+        if (konfirmasi == javax.swing.JOptionPane.YES_OPTION) {
+            repository.deleteWorkOrder(id);
+            view.showMessage("Work Order ID " + id + " berhasil dihapus!");
+            view.clearForm();
             loadTableData();
         }
     }

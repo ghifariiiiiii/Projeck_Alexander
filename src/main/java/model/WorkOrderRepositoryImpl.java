@@ -41,6 +41,22 @@ public class WorkOrderRepositoryImpl implements WorkOrderRepository {
         }
     }
 
+    //Hapus WO
+    @Override
+    public void deleteWorkOrder(String idWo) {
+        String sql = "DELETE FROM work_orders WHERE id_wo = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, idWo);
+            pstmt.executeUpdate();
+            System.out.println("Work Order berhasil dihapus.");
+
+        } catch (SQLException e) {
+            System.out.println("Error hapus data: " + e.getMessage());
+        }
+    }
+
     @Override
     public List<WorkOrder> getAllWorkOrders() {
         List<WorkOrder> listWo = new ArrayList<>();

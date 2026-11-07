@@ -19,4 +19,6 @@ public interface WorkOrderRepository {
     WorkOrder searchWorkOrder(String idWo);
 
     void updateStatusProgress(String idWo, String statusBaru);
+
+    void deleteWorkOrder(String idWo);
 }
