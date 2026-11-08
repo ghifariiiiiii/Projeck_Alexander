@@ -57,6 +57,7 @@ public class WorkOrderRepositoryImpl implements WorkOrderRepository {
         }
     }
 
+    //ambil wo dari database buat ditampilin ke GUI
     @Override
     public List<WorkOrder> getAllWorkOrders() {
         List<WorkOrder> listWo = new ArrayList<>();
